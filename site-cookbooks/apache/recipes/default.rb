@@ -16,8 +16,13 @@
 
 template "httpd.conf" do
  path "/etc/httpd/conf/httpd.conf"
+ source "httpd.conf.erb"
  owner "root"
  group "root"
  mode 0644
- notifies :reload, 'service[httpd]'
+# notifies :restart, 'service[httpd]'
+end
+
+service "httpd" do
+ action [ :restart]
 end
