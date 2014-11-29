@@ -1,0 +1,23 @@
+#ls
+alias ls="ls -G"
+alias la="ls -Ga"
+alias ll="ls -Gl"
+
+#cd
+alias ..="cd .."
+
+#history
+alias h="history"
+
+#git
+alias g="git"
+
+#sudo
+alias s="sudo"
+
+#rm -rf
+alias rf="rm -rf"
+
+#mkdir
+alias mk="mkdir"
+
