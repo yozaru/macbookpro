@@ -6,3 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+template "bashrc" do
+ path "/home/"
+end
