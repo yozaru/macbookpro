@@ -1,7 +1,7 @@
 {
   "run_list": [
    "recipe[dstat]",
-   "recipe[httpd]",
+   "recipe[apache]",
    "recipe[bashrc]",
    "recipe[mysql]"
   ]  
