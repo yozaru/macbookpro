@@ -7,5 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 template "bashrc" do
- path "/home/"
+ path "/home/a12426/.bashrc"
+ source "bashrc.erb"
 end
