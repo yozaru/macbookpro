@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/abadmin/centos64","disabled":false}}}
+=======
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/abadmin/centos64/macbookpro","disabled":false}}}
+>>>>>>> 46f1a0fd844f627d54f7f28d2de89ed89425beb9

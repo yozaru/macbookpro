@@ -1,0 +1,2 @@
+knife cookbook create default -o site-cookbooks
+

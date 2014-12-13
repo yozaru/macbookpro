@@ -20,11 +20,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
+<<<<<<< HEAD
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
+=======
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network "private_network", ip: "192.168.33.10"
+>>>>>>> 46f1a0fd844f627d54f7f28d2de89ed89425beb9
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -88,6 +96,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   # config.vm.provision "chef_solo" do |chef|
   #   chef.cookbooks_path = "../my-recipes/cookbooks"
+<<<<<<< HEAD
+=======
+  #    chef.cookbooks_path = "../my-recipes/site-cookbooks"
+>>>>>>> 46f1a0fd844f627d54f7f28d2de89ed89425beb9
   #   chef.roles_path = "../my-recipes/roles"
   #   chef.data_bags_path = "../my-recipes/data_bags"
   #   chef.add_recipe "mysql"
