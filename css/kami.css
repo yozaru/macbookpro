@@ -1,0 +1,42 @@
+body
+{
+    background: #FFE0B0;
+}
+
+section,
+section:before,
+section:after
+{
+    padding: 1em;
+    background: white;
+    box-shadow: 0 0 2px black;
+    width: 30em;
+    height: 16em;
+}
+
+section
+{
+    position: relative;
+    z-index: auto;
+}
+
+    section:before,
+    section:after
+    {
+        content: "";
+        position: absolute;
+    }
+
+    section:before
+    {
+        left: 3px;
+        top: 3px;
+        z-index: -1;
+    }
+
+    section:after
+    {
+        left: 6px;
+        top: 6px;
+        z-index: -2;
+    }
