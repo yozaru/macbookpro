@@ -43,5 +43,4 @@ puts "攻撃力:" + aya.attack.to_s
 puts "-------------------------"
 
 #Display Class
-class Display
-end
+ 
