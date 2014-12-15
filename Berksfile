@@ -1,9 +1,8 @@
-#site :opscode
-#source 'https://api.berkshelf.com'
 source "https://supermarket.getchef.com"
+source "http://api.berkshelf.com"
 
-cookbook 'yum-pel'
 cookbook 'apache2'
 cookbook 'mysql'
 cookbook 'nginx'
+cookbook 'yum-epel'
 

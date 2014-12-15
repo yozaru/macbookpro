@@ -4,5 +4,6 @@
    "recipe[apache]",
    "recipe[bashrc]",
    "recipe[mysql]"
+   "recipe[yum-epel]"
   ]  
 }
