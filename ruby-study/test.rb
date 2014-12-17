@@ -1,10 +1,30 @@
+#CSVでパラメータ取り込み
+require "csv"
+
+class Parameter
+ table = CSV.table('para.csv')
+ table.headers
+ i = 0
+ until table[:name][i].nil?
+  p table[:name][i] + "のパラメータ"
+  p "-------------------------------"
+  p "名前:" + table[:name][i]
+  p "体力:" + table[:hitpoint][i].to_s
+  p "攻撃力:" + table[:attack][i].to_s
+  p "-------------------------------"
+  i = i + 1
+  end
+end
+
 class Yo
  attr_accessor :name, :hitpoint, :attack
 
  def initialize
-  @name = "洋"
-  @hitpoint = 40
-  @attack = 6 
+  table = CSV.table('para.csv')
+  table.headers
+  @name = table[:name][0]
+  @hitpoint = table[:hitpoint][0]
+  @attack = table[:attack][0]
  end
 
  def dead?
@@ -13,11 +33,14 @@ class Yo
 end
 
 class Aya < Yo
+ attr_accessor :name, :hitpoint, :attack
 
  def initialize
-  @name = "アヤ"
-  @hitpoint = 30
-  @attack = 5
+  table = CSV.table('para.csv')
+  table.headers
+  @name = table[:name][1]
+  @hitpoint = table[:hitpoint][1]
+  @attack = table[:attack][1]
  end
 
 end
