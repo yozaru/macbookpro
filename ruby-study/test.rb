@@ -3,8 +3,8 @@ class Yo
 
  def initialize
   @name = "洋"
-  @hitpoint = 20
-  @attack = 3
+  @hitpoint = 40
+  @attack = 6 
  end
 
  def dead?
@@ -12,18 +12,14 @@ class Yo
  end
 end
 
-class Aya
- attr_accessor :name, :hitpoint, :attack
+class Aya < Yo
 
  def initialize
   @name = "アヤ"
-  @hitpoint = 20
+  @hitpoint = 30
   @attack = 5
  end
 
- def dead?
-  @hitpoint <=0
- end
 end
 
 #戦闘クラス
