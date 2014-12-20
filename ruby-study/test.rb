@@ -5,7 +5,7 @@ class Parameter
  table = CSV.table('para.csv')
  table.headers
  i = 0
- until table[:name][i].nil?
+ until table[:name][i].nil? do
   p table[:name][i] + "のパラメータ"
   p "-------------------------------"
   p "名前:" + table[:name][i]
