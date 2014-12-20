@@ -1,4 +1,4 @@
-#CSVでパラメータ取り込み
+##CSVでパラメータ取り込み
 require "csv"
 
 class Parameter
