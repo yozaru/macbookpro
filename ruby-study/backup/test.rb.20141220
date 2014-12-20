@@ -1,10 +1,30 @@
+##CSVでパラメータ取り込み
+require "csv"
+
+class Parameter
+ table = CSV.table('para.csv')
+ table.headers
+ i = 0
+ until table[:name][i].nil? do
+  p table[:name][i] + "のパラメータ"
+  p "-------------------------------"
+  p "名前:" + table[:name][i]
+  p "体力:" + table[:hitpoint][i].to_s
+  p "攻撃力:" + table[:attack][i].to_s
+  p "-------------------------------"
+  i = i + 1
+  end
+end
+
 class Yo
  attr_accessor :name, :hitpoint, :attack
 
  def initialize
-  @name = "洋"
-  @hitpoint = 20
-  @attack = 3
+  table = CSV.table('para.csv')
+  table.headers
+  @name = table[:name][0]
+  @hitpoint = table[:hitpoint][0]
+  @attack = table[:attack][0]
  end
 
  def dead?
@@ -12,28 +32,18 @@ class Yo
  end
 end
 
-class Aya
+class Aya < Yo
  attr_accessor :name, :hitpoint, :attack
 
  def initialize
-  @name = "アヤ"
-  @hitpoint = 20
-  @attack = 5
+  table = CSV.table('para.csv')
+  table.headers
+  @name = table[:name][1]
+  @hitpoint = table[:hitpoint][1]
+  @attack = table[:attack][1]
  end
 
- def dead?
-  @hitpoint <=0
- end
 end
-
-class Test < Aya
- def call
-  puts @name
- end
-end
-
-test = Test.new
-puts test.call
 
 #戦闘クラス
 class Battle
@@ -59,11 +69,11 @@ class Battle
  end
  
  def attack
-  damage1 = [*1..10].sample
+  damage1 = rand(30.0)
     puts @yo.name + "の攻撃！！ %iのダメージ" % damage1
     @aya.hitpoint = @aya.hitpoint - damage1
   
-  damage2 = [*1..10].sample
+  damage2 = rand(40.0)
     puts @aya.name + "の攻撃！！ %iのダメージ" % damage2
     @yo.hitpoint = @yo.hitpoint - damage2
     puts ""

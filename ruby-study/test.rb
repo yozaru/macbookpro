@@ -1,48 +1,34 @@
 ##CSVでパラメータ取り込み
 require "csv"
 
-class Parameter
- table = CSV.table('para.csv')
- table.headers
- i = 0
- until table[:name][i].nil? do
-  p table[:name][i] + "のパラメータ"
-  p "-------------------------------"
-  p "名前:" + table[:name][i]
-  p "体力:" + table[:hitpoint][i].to_s
-  p "攻撃力:" + table[:attack][i].to_s
-  p "-------------------------------"
-  i = i + 1
+class Player
+ attr_accessor :name, :hitpoint, :attack, :critical
+ def dead? 
+  hitpoint > 0
+  p "Players Dead!"
   end
 end
 
-class Yo
- attr_accessor :name, :hitpoint, :attack
-
+class Yo < Player
  def initialize
-  table = CSV.table('para.csv')
+  table = CSV.table('csv/yo.csv')
   table.headers
   @name = table[:name][0]
   @hitpoint = table[:hitpoint][0]
   @attack = table[:attack][0]
- end
-
- def dead?
-  @hitpoint <= 0
+  @critical = table[:critical][0]
  end
 end
 
-class Aya < Yo
- attr_accessor :name, :hitpoint, :attack
-
- def initialize
-  table = CSV.table('para.csv')
+class Aya < Player
+  def initialize
+  table = CSV.table('csv/aya.csv')
   table.headers
-  @name = table[:name][1]
-  @hitpoint = table[:hitpoint][1]
-  @attack = table[:attack][1]
+  @name = table[:name][0]
+  @hitpoint = table[:hitpoint][0]
+  @attack = table[:attack][0]
+  @critical = table[:critical][0]
  end
-
 end
 
 #戦闘クラス
@@ -56,24 +42,24 @@ class Battle
  def parameter
   puts "@洋のパラメータ"
   puts "-------------------------"
-  puts "名前:" + @yo.name
+  puts "名前:" + @yo.name.to_s
   puts "体力:" + @yo.hitpoint.to_s
   puts "攻撃力:" + @yo.attack.to_s
   puts "-------------------------"
   puts "@アヤのパラメータ"
   puts "-------------------------"
-  puts "名前" + @aya.name
+  puts "名前" + @aya.name.to_s
   puts "体力:" + @aya.hitpoint.to_s
   puts "攻撃力:" + @aya.attack.to_s
   puts "-------------------------"
  end
  
  def attack
-  damage1 = [*1..10].sample
+  damage1 = rand(30.0)
     puts @yo.name + "の攻撃！！ %iのダメージ" % damage1
     @aya.hitpoint = @aya.hitpoint - damage1
   
-  damage2 = [*1..10].sample
+  damage2 = rand(40.0)
     puts @aya.name + "の攻撃！！ %iのダメージ" % damage2
     @yo.hitpoint = @yo.hitpoint - damage2
     puts ""
