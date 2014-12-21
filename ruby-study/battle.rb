@@ -1,15 +1,34 @@
-#戦闘クラス
-class Battle
- #ゲーム開始
- def attack
- damege = 3
-    puts yo.name + "の攻撃！！ %iのダメージ" % damage
-    yo.hitpoint = yo.hitpoint - damage
+##CSVでパラメータ取り込み
+require "csv"
 
-    puts aya.name + "の攻撃！！ %iのダメージ" % damage
-    @aya.hitpoint = aya.hitpoint - damage
-    puts ""
-
-    @player.dead? or @monster.dead? # どちらかのキャラクターの hp が無くなったかの判定
-    end
+class Player
+ attr_accessor :name, :hitpoint, :attack, :critical
+ def dead? 
+  hitpoint >= 0
+  end
 end
+
+class Yo < Player
+ def initialize
+  table = CSV.table('csv/yo.csv')
+  table.headers
+  @name = table[:name][0]
+  @hitpoint = table[:hitpoint][0]
+  @attack = table[:attack][0]
+  @critical = table[:critical][0]
+ end
+end
+
+class Aya < Player
+  def initialize
+  table = CSV.table('csv/aya.csv')
+  table.headers
+  @name = table[:name][0]
+  @hitpoint = table[:hitpoint][0]
+  @attack = table[:attack][0]
+  @critical = table[:critical][0]
+ end
+end
+
+yo = Yo.new
+p yo.name

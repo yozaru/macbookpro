@@ -1,0 +1,3 @@
+#! ruby -Ks
+# -*- coding: Windows-31J -*-
+print "‚æ‚¤‚±‚»" "“¡‘ò‚Ö"

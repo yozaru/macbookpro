@@ -38,24 +38,13 @@ class Battle
     @yo = yo
     @aya = aya
  end
-#パラメータ表示 
- def parameter
-  puts "@洋のパラメータ"
-  puts "-------------------------"
-  puts "名前:" + @yo.name.to_s
-  puts "体力:" + @yo.hitpoint.to_s
-  puts "攻撃力:" + @yo.attack.to_s
-  puts "-------------------------"
-  puts "@アヤのパラメータ"
-  puts "-------------------------"
-  puts "名前" + @aya.name.to_s
-  puts "体力:" + @aya.hitpoint.to_s
-  puts "攻撃力:" + @aya.attack.to_s
-  puts "-------------------------"
- end
  
  def attack
   damage1 = rand(30.0)
+    if damage1 > 20
+    p "会心の一撃"
+    exit
+    end
     puts @yo.name + "の攻撃！！ %iのダメージ" % damage1
     @aya.hitpoint = @aya.hitpoint - damage1
   
@@ -66,7 +55,6 @@ class Battle
 
     @yo.dead? or @aya.dead? # どちらかのキャラクターの hp が無くなったかの判定
     end
-
  def judge
   if @yo.dead? and @aya.dead? #Draw
    puts "DRAW!!!!!!"
@@ -76,8 +64,7 @@ class Battle
    puts "Aya Win!!!!!"
   end 
  end
-end 
-
+end
 
 #ゲームクラス
 class Game
@@ -86,7 +73,6 @@ class Game
   yo = Yo.new
   aya = Aya.new
   battle = Battle.new(yo,aya)
-  battle.parameter
   while yo.hitpoint > 0 and aya.hitpoint > 0 do
   puts "###########################"
   puts "戦闘開始！"

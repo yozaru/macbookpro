@@ -1,0 +1,4 @@
+#! ruby -Ks
+# -*- coding: Windows-31J -*-
+print "‚æ‚¤‚±‚»"
+print 'Welcome'

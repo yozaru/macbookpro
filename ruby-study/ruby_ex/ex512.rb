@@ -1,0 +1,7 @@
+#! ruby -Ks
+# -*- coding: Windows-31J -*-
+e = 2.7182818284
+print "e= #{ e }\n"
+print "e‚Ì2”{‚ÍA#{ 2 * e } ‚Å‚·B\n"
+prime100 = 541
+print "100”Ô–Ú‚Ì‘f”‚Í#{prime100}‚Å‚·B\n"
